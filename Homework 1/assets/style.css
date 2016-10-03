@@ -36,7 +36,9 @@ p {
 .no-js #loader {
     display: none;
 }
-
+table {
+    text-align: center;
+}
 .js #loader {
     display: block;
     position: absolute;
@@ -117,4 +119,41 @@ footer i {
 .parallax-window {
     min-height: 400px;
     background: transparent;
+}
+.exercise {
+    background: #E0FFFF;
+    border: 1px solid lightgray;
+}
+.lecture {
+    background: #90EE90;
+    border: 1px solid lightgray;
+}
+.physical-exercise {
+    background: #de9fee;
+    border: 1px solid lightgray;
+}
+.freeline {
+    border: 1px solid lightgray;
+}
+.legend ul {
+    list-style-type: none;
+}
+.legend ul li {
+    display: block;
+}
+.square {
+    width: 10px;
+    height: 10px;
+    border: 1px solid lightgray;
+    float: left;
+    margin: 5px;
+}
+.blue {
+    background: #E0FFFF;
+}
+.green {
+    background: #90EE90;
+}
+.purple {
+    background: #de9fee;
 }

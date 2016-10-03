@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Webtech zadanie c.1">
+    <meta name="author" content="lukas@stranovsky.sk">
+    <script src="./assets/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <title>Webtech zadanie c. 1</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300i,400,400i,500,500i,600,600i,700,700i,800,800i&subset=latin-ext"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="./assets/parallax.min.js"></script>
+</head>
+<body>
+<div class="se-pre-con"></div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h1 class="navbar-brand">Another personal webpage</h1>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">O mne</a></li>
+                <li><a href="rozvrh.html">Môj rozvrh</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+    </div>
+</div>
+<div class="parallax-window" style="height: 300px;"></div>
+<div class="container custom-padding">
+    <div class="row">
+        <div class="col-md-12">
+            <main>
+                <h2>Rozvrh</h2>
+                <div class="separator"></div>
+                <div class="legend">
+                    <ul>
+                        <li>
+                            <div class="square blue"></div> - Cvičenie
+                        </li>
+                        <li>
+                            <div class="square green"></div> - Prednáška
+                        </li>
+                        <li>
+                            <div class="square purple"></div> - Telesná kultúra
+                        </li>
+                    </ul>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Deň</th>
+                        <th>7.00-7.50</th>
+                        <th>8.00-8.50</th>
+                        <th>9.00-9.50</th>
+                        <th>10.00-10.50</th>
+                        <th>11.00-11.50</th>
+                        <th>12.00-12.50</th>
+                        <th>13.00-13.50</th>
+                        <th>14.00-14.50</th>
+                        <th>15.00-15.50</th>
+                        <th>16.00-16.50</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Po</th>
+                        <td class="freeline" colspan="10"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ut</th>
+                        <td colspan="4" class="exercise">Virtuálne prototypovanie</td>
+                        <td colspan="6" class="freeline"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">St</th>
+                        <td colspan="2" class="freeline"></td>
+                        <td class="exercise">Bc. konzult.</td>
+                        <td colspan="1" class="freeline"></td>
+                        <td colspan="2" class="physical-exercise">Telesná kultúra</td>
+                        <td colspan="2" class="lecture">Operačné systémy</td>
+                        <td colspan="2" class="freeline"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Št</th>
+                        <td colspan="7" class="freeline"></td>
+                        <td colspan="2" class="exercise">Analýza a zložitosť algoritmov</td>
+                        <td colspan="1" class="freeline"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pi</th>
+                        <td colspan="2" class="freeline"></td>
+                        <td colspan="2" class="exercise">Operačné systémy</td>
+                        <td colspan="2" class="freeline"></td>
+                        <td colspan="2" class="exercise">Softvérové inžinierstvo</td>
+                        <td colspan="2" class="exercise">Webové technológie</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>Copyright © 2016 <a href="mailto:lukas@stranovsky.sk">Lukáš Stranovský</a>. Under <a target="_blank"
+                                                                                            href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>
+        license.
+    </p>
+    <ul>
+        <li><a target="_blank" href="https://github.com/Luxato/web-technologies"><i class="fa fa-github-square"
+                                                                                    aria-hidden="true"></i></a></li>
+        <li><a target="_blank"
+               href="https://www.linkedin.com/profile/view?id=AAIAAB5CHtAB01yHolHMHB59AAwjXdbPUyqorjE&trk=nav_responsive_tab_profile"><i
+                class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+    </ul>
+</footer>
+<script src="./assets/custom.js"></script>
+</body>
+</html>

@@ -20,11 +20,6 @@ $(window).on('scroll', function () {
 $(window).on('load', function () {
     $(".se-pre-con").delay(1000).fadeOut("slow");
 });
-$(function () {
-    $('.navbar-brand').on('click', function (e) {
-        e.preventDefault();
-    });
-});
 $('.parallax-window').parallax({
     imageSrc: 'assets/header-bg.jpg',
     naturalWidth: 5616,

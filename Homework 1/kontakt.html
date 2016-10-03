@@ -1,10 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <title>Kontakt</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Webtech zadanie c.1">
+    <meta name="author" content="lukas@stranovsky.sk">
+    <script src="./assets/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <title>Webtech zadanie c. 1</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300i,400,400i,500,500i,600,600i,700,700i,800,800i&subset=latin-ext"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="./assets/parallax.min.js"></script>
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
 </head>
 <body>
-
+<div class="se-pre-con"></div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h1 style="margin: 0;"><a class="navbar-brand" href="index.html">Another personal webpage</a></h1>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">O mne</a></li>
+                <li><a href="rozvrh.html">Môj rozvrh</a></li>
+                <li class="active"><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+    </div>
+</div>
+<div class="parallax-window" style="height: 300px;"></div>
+<div class="container custom-padding">
+    <div class="row">
+        <div class="col-md-12">
+            <main>
+                <h2>Kontakt</h2>
+                <div class="separator"></div>
+                <ul style="list-style-type: none; clear: both;">
+                    <li>
+                        <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div> <span class="left">Nebojsa 63, 924 01 Galanta</span>
+                    </li>
+                    <li>
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div> <span class="left"><a href="mailto:lukas@stranovsky.sk">lukas@stranovsky.sk</a></span>
+                    </li>
+                </ul>
+                <ul style="clear: both;">
+                    <li style="display: inline;"><a target="_blank" href="https://github.com/Luxato/web-technologies"><i style="font-size: 45px;" class="fa fa-github-square"
+                                                                                                aria-hidden="true"></i></a>
+                    </li>
+                    <li style="display: inline;"><a target="_blank"
+                           href="https://www.linkedin.com/profile/view?id=AAIAAB5CHtAB01yHolHMHB59AAwjXdbPUyqorjE&trk=nav_responsive_tab_profile"><i style="font-size: 45px;"
+                            class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    </li>
+                    <li style="display: inline;"><a target="_blank"
+                           href="https://www.facebook.com/lukas.stranovsky"><i style="font-size: 45px;"
+                            class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2658.461429838591!2d17.72553595096581!3d48.21698877912784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b6f584275a973%3A0xc3e28d8afa17dc3d!2sNebojsa+63%2C+924+01+Galanta!5e0!3m2!1ssk!2ssk!4v1475523031355"
+                        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </main>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>Copyright © 2016 <a href="mailto:lukas@stranovsky.sk">Lukáš Stranovský</a>. Under <a target="_blank"
+                                                                                            href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>
+        license.
+    </p>
+    <ul>
+        <li><a target="_blank" href="https://github.com/Luxato/web-technologies"><i class="fa fa-github-square"
+                                                                                    aria-hidden="true"></i></a>
+        </li>
+        <li><a target="_blank"
+               href="https://www.linkedin.com/profile/view?id=AAIAAB5CHtAB01yHolHMHB59AAwjXdbPUyqorjE&trk=nav_responsive_tab_profile"><i
+                class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</footer>
+<script src="./assets/custom.js"></script>
 </body>
 </html>

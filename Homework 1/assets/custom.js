@@ -18,10 +18,5 @@ $(window).on('scroll', function () {
     }
 });
 $(window).on('load', function () {
-    $(".se-pre-con").delay(1000).fadeOut("slow");
-});
-$('.parallax-window').parallax({
-    imageSrc: 'assets/header-bg.jpg',
-    naturalWidth: 5616,
-    naturalHeight: 2040
+    $(".se-pre-con").delay(300).fadeOut("slow");
 });

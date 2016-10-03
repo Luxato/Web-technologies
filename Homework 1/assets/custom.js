@@ -25,3 +25,8 @@ $(function () {
         e.preventDefault();
     });
 });
+$('.parallax-window').parallax({
+    imageSrc: 'assets/header-bg.jpg',
+    naturalWidth: 5616,
+    naturalHeight: 2040
+});

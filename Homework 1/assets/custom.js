@@ -1,18 +1,20 @@
 $(window).on('scroll', function () {
     var scrollTop = $(this).scrollTop();
+    var navbar = $('.navbar');
     if (scrollTop != 0) {
-        $('.navbar').stop().animate({
+        // Im definetly not in top.
+        navbar.stop().animate({
             'height': '70px',
-            'opacity': '1',
+            'opacity': '1'
         }, 'fast');
-        $('.navbar').find('a').stop().animate({'height': '70px'}, 'fast');
+        navbar.find('a').stop().animate({'height': '70px'}, 'fast');
     } else {
-        /*console.log('top reached');*/
-        $('.navbar').stop().animate({
+        // Wohoho, we reached top.
+        navbar.stop().animate({
             'height': '50px',
             'opacity': '0.7'
         }, 'fast');
-        $('.navbar').find('a').stop().animate({
+        navbar.find('a').stop().animate({
             'height': '50px'
         }, 'fast');
     }

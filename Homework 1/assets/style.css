@@ -1,6 +1,7 @@
 * {
     margin: 0;
 }
+
 html, body {
     height: 100%;
 }
@@ -26,7 +27,6 @@ nav a {
 p {
     font-family: 'Lato', sans-serif;
 }
-
 
 main p {
     font-size: 16px;
@@ -140,10 +140,6 @@ footer i {
     background-color: #ccc;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
-}
-
 .parallax-window {
     min-height: 400px;
     background: transparent;
@@ -152,6 +148,11 @@ footer i {
 .exercise {
     background: #E0FFFF;
     border: 1px solid lightgray;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
 }
 
 .lecture {
@@ -249,10 +250,19 @@ footer i {
 }
 
 .container.custom-padding {
+    min-height: 50%;
     height: auto !important;
     height: 50%;
-    margin:0 auto -33px;
+    margin: 0 auto -33px;
 }
+
 .push {
     height: 100px;
+}
+
+/* Media queries */
+@media (min-width: 1290px) {
+    .legend li, footer ul li {
+        float: left;
+    }
 }

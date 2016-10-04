@@ -103,6 +103,9 @@
                             class="fa fa-facebook-square" aria-hidden="true"></i></a>
                     </li>
                 </ul>
+                <h2>Poďme na obed</h2>
+                <div class="separator"></div>
+                <div id="map"></div>
             </main>
         </div>
     </div>
@@ -130,6 +133,20 @@
         naturalWidth: 5616,
         naturalHeight: 2040
     });
+    function initMap() {
+        var nebojsa = {lat: 48.2204377, lng: 17.7274994};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: nebojsa
+        });
+        var marker = new google.maps.Marker({
+            position: nebojsa,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHVpII9dUxzd4518mCYhIYsIyDkfdG8Mc&callback=initMap">
 </script>
 </body>
 </html>

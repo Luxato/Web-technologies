@@ -22,6 +22,17 @@ p {
 
 main p {
     font-size: 16px;
+    text-align: justify;
+}
+
+aside {
+    color: #AF2560;
+    font-size: 15px;
+    float: right;
+    padding: 20px;
+    background: rgba(216, 213, 194, 0.2);
+    border-radius: 3px;
+    margin: 6px 10px 10px 10px;
 }
 
 .navbar {
@@ -156,10 +167,12 @@ footer i {
     display: block;
     width: 100px;
 }
+
 .socialNetworks li:hover {
-    box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
     border-collapse: collapse;
 }
+
 .left {
     float: left;
 }
@@ -199,4 +212,26 @@ footer i {
 
 .purple {
     background: #de9fee;
+}
+
+.floated-img {
+    float: left;
+    padding-right: 25px;
+    width: 163px;
+}
+
+.floated-img span {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.floated-img img {
+    border-radius: 50%;
+}
+
+.floated-content {
+    clear: both;
+    margin-bottom: 70px;
 }

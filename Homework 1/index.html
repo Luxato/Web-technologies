@@ -22,13 +22,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <!--Font awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="./assets/style.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script src="./assets/parallax.min.js"></script>
     <!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
@@ -39,13 +32,20 @@
     <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="./assets/parallax.min.js"></script>
 </head>
 <body>
 <div class="se-pre-con"></div>
@@ -82,21 +82,38 @@
             <main>
                 <h2>O mne</h2>
                 <div class="separator"></div>
-                <p>
-                    Toto je príbeh z dávných časov. Z časov mýtov a legiend, kedy bohovia boli malicherný, krutí a zmietali ľudstvo pohromami.
-                    Pohromami ako HTML4 a CSS2.
-                    <br>
-                    V týchto časoch som našiel kameň, ktorý mi prepožičal silu vidieť budúcnosť. Od vtedy sa venujem HTML 15 a CSS9.
-                    <br>
-                    Občas do sveta smrteľníkov prídem pozrieť nejakú tú <strike>prednášku v škole</strike> časť z <a target="_blank" href="http://www.imdb.com/title/tt0944947/">Game of thrones</a>.
-                </p>
+                <div class="floated-content">
+                    <div class="floated-img">
+                        <img src="./assets/cyklista.jpg" alt="cyklista" width="147" height="147">
+                        <span>(Ja ako cyklista).</span>
+                    </div>
+                    <aside>
+                        <q>Nikdy sa nevzdávaj svojich snov, proste, spi ďalej.</q>
+                    </aside>
+                    <p>
+                        Toto je príbeh z dávných časov. Z časov mýtov a legiend, kedy bohovia boli malicherný, krutí a
+                        zmietali ľudstvo pohromami.
+                        Pohromami ako HTML4 a CSS2.
+                        <br>
+                        V týchto časoch som našiel kameň, ktorý mi prepožičal silu vidieť budúcnosť. Od vtedy sa venujem
+                        HTML 15 a CSS 9.
+                        <br>
+                        Občas do sveta smrteľníkov prídem pozrieť nejakú tú <strike>prednášku v škole</strike> časť z <a
+                            target="_blank" href="http://www.imdb.com/title/tt0944947/">Game of thrones</a>.
+                    </p>
+                </div>
                 <div class="separator"></div>
                 <ul class="socialNetworks">
                     <li>
-                        <a target="_blank" href="https://github.com/Luxato/web-technologies"><img class="round" src="./assets/cattivo.jpg" alt="Cattivo" width="100px"></a>
+                        <a data-toggle="tooltip" title="Github" target="_blank"
+                           href="https://github.com/Luxato/web-technologies"><img class="round"
+                                                                                  src="./assets/cattivo.jpg"
+                                                                                  alt="Cattivo" width="100px"></a>
                     </li>
                     <li>
-                        <a target="_blank" href="https://www.linkedin.com/profile/view?id=AAIAAB5CHtAB01yHolHMHB59AAwjXdbPUyqorjE&trk=nav_responsive_tab_profile"><img class="round" src="./assets/buono.jpg" alt="Buono" width="100px"></a>
+                        <a data-toggle="tooltip" title="LinkedIn" target="_blank"
+                           href="http://stranovsky.sk/linkedin"><img class="round" src="./assets/buono.jpg" alt="Buono"
+                                                                     width="100px"></a>
                     </li>
                 </ul>
             </main>
@@ -104,12 +121,15 @@
     </div>
 </div>
 <footer>
-    <p>Copyright © 2016 <a href="mailto:lukas@stranovsky.sk">Lukáš Stranovský</a>. Under <a target="_blank"
-            href="https://en.wikipedia.org/wiki/MIT_License">MIT</a> license.
+    <p>Copyright © 2016 <a href="mailto:lukas@stranovsky.sk">Lukas Stranovsky</a>. Under <a target="_blank"
+                                                                                            href="https://en.wikipedia.org/wiki/MIT_License">MIT</a>
+        license.
     </p>
     <ul>
-        <li><a target="_blank" href="https://github.com/Luxato/web-technologies"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
-        <li><a target="_blank" href="https://www.linkedin.com/profile/view?id=AAIAAB5CHtAB01yHolHMHB59AAwjXdbPUyqorjE&trk=nav_responsive_tab_profile"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+        <li><a target="_blank" href="https://github.com/Luxato/web-technologies"><i class="fa fa-github-square"
+                                                                                    aria-hidden="true"></i></a></li>
+        <li><a target="_blank" href="http://stranovsky.sk/linkedin"><i class="fa fa-linkedin-square"
+                                                                       aria-hidden="true"></i></a></li>
     </ul>
 </footer>
 <script src="./assets/custom.js"></script>
@@ -118,6 +138,11 @@
         imageSrc: 'assets/header-bg.jpg',
         naturalWidth: 5616,
         naturalHeight: 2040
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 </body>

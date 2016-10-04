@@ -139,7 +139,9 @@ footer i {
 ::-webkit-scrollbar-thumb {
     background-color: #ccc;
 }
-
+address {
+    margin: 0;
+}
 .parallax-window {
     min-height: 400px;
     background: transparent;

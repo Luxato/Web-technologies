@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
 h1, h2 {
     font-family: 'Raleway', sans-serif;
 }
@@ -19,6 +26,7 @@ nav a {
 p {
     font-family: 'Lato', sans-serif;
 }
+
 
 main p {
     font-size: 16px;
@@ -70,7 +78,7 @@ table {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url(./preloader.gif) center no-repeat #fff;
+    background: url(./img/preloader.gif) center no-repeat #fff;
 }
 
 .navbar-default {
@@ -220,6 +228,10 @@ footer i {
     width: 163px;
 }
 
+.line-trough {
+    text-decoration: line-through;
+}
+
 .floated-img span {
     font-family: 'Lato', sans-serif;
     text-align: center;
@@ -234,4 +246,13 @@ footer i {
 .floated-content {
     clear: both;
     margin-bottom: 70px;
+}
+
+.container.custom-padding {
+    height: auto !important;
+    height: 50%;
+    margin:0 auto -33px;
+}
+.push {
+    height: 100px;
 }

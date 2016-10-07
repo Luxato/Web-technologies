@@ -1,0 +1,66 @@
+html {
+    background: url(russia.png) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body, html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+}
+ .marker {
+     width: 100px;
+     height: 162px;
+     background: url('marker.png');
+     background-repeat: no-repeat;
+     display: block;
+ }
+.tooltip {
+    color: #fff;
+    width: 150px;
+    height: 80px;
+    background: #1a1a1a;
+    padding: 8px;
+    border-radius: 5px;
+    position: relative;
+    left: -24px;
+    top: 9px;
+    display: none;
+}
+section {
+    text-align: center;
+}
+.moscow {
+    position: absolute;
+    top: 245px;
+    left: 198px;
+}
+.yekaterinburg {
+    position: absolute;
+    left: 398px;
+    top: 398px;
+}
+.norilsk {
+    position: absolute;
+    left: 703px;
+    top: 254px;
+}
+.murmansk {
+    position: absolute;
+    left: 391px;
+    top: 64px;
+}
+.marker-moscow:hover + div{
+    display: block;
+}
+.marker-yekaterinburg:hover + div{
+    display: block;
+}
+.marker-norilsk:hover + div{
+    display: block;
+}
+.marker-murmansk:hover + div{
+    display: block;
+}

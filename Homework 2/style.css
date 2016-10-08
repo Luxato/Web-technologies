@@ -37,15 +37,25 @@ ul {
 .tooltip {
     color: #fff;
     width: 150px;
-    height: 80px;
+    height: 146px;
     background: #1a1a1a;
     padding: 8px;
     border-radius: 5px;
     position: relative;
-    left: -24px;
-    top: 9px;
+    left: 86px;
+    top: -151px;
     display: none;
     z-index: 99999;
+}
+
+section ul {
+    list-style-type: none;
+}
+
+.summary-img:first-child {
+    float: left;
+    padding: 0 8px;
+    margin: 0 3px;
 }
 
 section {

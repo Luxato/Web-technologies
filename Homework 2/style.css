@@ -1,8 +1,9 @@
 html {
-    background: url(slovakia.png) ;
+    background: url(slovakia.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 body, html {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -10,20 +11,29 @@ body, html {
     -webkit-font-smoothing: antialiased;
     font-size: 12px;
 }
+
+h1 {
+    color: black;
+    opacity: 0.3;
+}
+
 h2, ul {
     padding: 0;
     margin: 0;
 }
+
 ul {
-   text-align: left;
+    text-align: left;
 }
- .marker {
-     width: 100px;
-     height: 162px;
-     background: url('marker.png');
-     background-repeat: no-repeat;
-     display: block;
- }
+
+.marker {
+    width: 100px;
+    height: 162px;
+    background: url('marker.png');
+    background-repeat: no-repeat;
+    display: block;
+}
+
 .tooltip {
     color: #fff;
     width: 150px;
@@ -37,38 +47,58 @@ ul {
     display: none;
     z-index: 99999;
 }
+
 section {
     text-align: center;
 }
+
 .bratislava {
     position: absolute;
     top: 471px;
     left: 98px;
 }
+
 .galanta {
     position: absolute;
     left: 250px;
     top: 453px;
 }
+
 .banska-stiavnica {
     position: absolute;
     left: 560px;
     top: 357px;
 }
+
 .trencin {
     position: absolute;
     left: 330px;
     top: 191px;
 }
-.marker-bratislava:hover + div{
+
+.marker-bratislava:hover + div {
     display: block;
 }
-.marker-galanta:hover + div{
+
+.marker-galanta:hover + div {
     display: block;
 }
-.marker-banska-stiavnica:hover + div{
+
+.marker-banska-stiavnica:hover + div {
     display: block;
 }
-.marker-trencin:hover + div{
+
+.marker-trencin:hover + div {
     display: block;
+}
+
+.fa, i {
+    font-size: 30px !important;
+    color: deeppink;
+}
+
+footer, footer ul {
+    text-align: center;
+    width: 102px;
+    opacity: 0.7;
 }

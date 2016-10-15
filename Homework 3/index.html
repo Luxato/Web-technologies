@@ -36,7 +36,8 @@
                         <span data-toggle="tooltip" title="Validná emailová adresa" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="email">Emailová
                     adresa *</label>
-                    <input name="email" type="email" onblur="validateEmail(this)" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
+                    <input name="email" type="email" onblur="validateEmail(this)" class="form-control" id="email"
+                           placeholder="napr. mnamky@mnam.sk">
                     <div class="error_message">
                         <ul id="email_error_container">
                         </ul>
@@ -46,17 +47,24 @@
                         <span data-toggle="tooltip" title="Rodné číslo zadávajte s lomkou" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="birthNum">Rodné
                     číslo *</label>
-                    <input id="birthNum" name="birthNum" type="text" class="form-control" placeholder="napr. 758598/7863">
+                    <input id="birthNum" name="birthNum" type="text" class="form-control"
+                           placeholder="napr. 758598/7863">
+                    <div class="error_message">
+                        <ul id="birthNum_error_container">
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Dátum narodenia v tvare napr. 29-Apr-1995 "
                               class="custom-tooltip"><i class="fa fa-question-circle"
                                                         aria-hidden="true"></i> </span><label>Dátum narodenia *</label>
-                    <input id="birthDate" name="birthDate" type="date" class="form-control" placeholder="Dátum narodenia">
+                    <input id="birthDate" name="birthDate" type="date" class="form-control"
+                           placeholder="Dátum narodenia">
                 </div>
                 <div class="form-group">
                     <label for="age">Vek *</label>
-                    <input id="age" name="age" onblur="validateAge(this)" type="number" min="0" class="form-control" placeholder="napr. 38">
+                    <input id="age" name="age" onblur="validateAge(this)" type="number" min="0" class="form-control"
+                           placeholder="napr. 38">
                     <div class="error_message">
                         <ul id="age_error_container">
                         </ul>
@@ -118,17 +126,39 @@
     var errorMessages = [];
 
     function validateForm(myForm) {
-/*        console.log(myForm);
-        console.log(myForm.email.value);
-        console.log(myForm.birthNum.value);
-        console.log(myForm.age.value);*/
+        /*        console.log(myForm);
+         console.log(myForm.email.value);
+         console.log(myForm.birthNum.value);
+         console.log(myForm.age.value);*/
+
         validateEmail(myForm.email);
+        validateBirthNum(myForm.birthNum);
         validateAge(myForm.age);
         console.log(myForm.birthDate.value);
     }
 
+    function validateBirthNum(birthNum) {
+        if (birthNum.value.length == 0) {
+            addErrorClass(birthNum);
+            errorMessages.push("Rodné číslo musí byť zadané!");
+        } else {
+            // B.Date is set.
+            if (birthNum.value.length != 11) {
+                addErrorClass(birthNum);
+                errorMessages.push("Dĺžka rodného čísla musí byť 11 znakov. Napr. 960610/2000!");
+            } else if (birthNum.value[6] != '/') {
+                addErrorClass(birthNum);
+                errorMessages.push("Šiesty znak v rodnom číslo musí byť lomka. Napr. 960610/2000!");
+            } else {
+                removeErrorClass(birthNum);
+            }
+        }
+        // Show errors.
+        showErrorsNearInput('birthNum_error_container');
+    }
+
     function validateAge(age) {
-        if (age.value.length == 0 ) {
+        if (age.value.length == 0) {
             // When age is not set.
             addErrorClass(age);
             errorMessages.push("Vek musi byť zadany!");
@@ -154,6 +184,7 @@
         }
         // Errors are saved, lets null array.
         errorMessages = [];
+        // Write them on screen.
         document.getElementById(inputID).innerHTML = result;
     }
 
@@ -190,6 +221,7 @@
      * @param element
      */
     function addErrorClass(element) {
+        // TODO add only once custom-error class, prevent duplicates
         var classString = element.className;
         var newClass = classString.concat(" custom-error");
         element.className = newClass;
@@ -207,7 +239,7 @@
 
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-        $('#myForm').submit(function(e) {
+        $('#myForm').submit(function (e) {
             e.preventDefault();
         });
     });

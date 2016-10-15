@@ -1,0 +1,28 @@
+body, html {
+    height: 100%;
+}
+section {
+    padding: 25px;
+}
+.pink {
+    background: #f658c0;
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px dotted lightgreen;
+}
+.pinky-pink {
+    background-color: #fb74cd;
+    width: 100%;
+    height: 50%;
+}
+footer {
+    width: 80%;
+    position: relative;
+}
+#hello-kitty {
+    height: 150px;
+    width: 150px;
+    background: url(hello-kitty.png);
+    position: absolute;
+    bottom: 0;
+}

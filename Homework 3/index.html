@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <title>Formuláre</title>
+    <title>Formulár</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -47,7 +47,8 @@
                         <span data-toggle="tooltip" title="Rodné číslo zadávajte s lomkou" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="birthNum">Rodné
                     číslo *</label>
-                    <input id="birthNum" name="birthNum" onblur="validateBirthNum(this)" type="text" class="form-control"
+                    <input id="birthNum" name="birthNum" onblur="validateBirthNum(this)" type="text"
+                           class="form-control"
                            placeholder="napr. 758598/7863">
                     <div class="error_message">
                         <ul id="birthNum_error_container">
@@ -58,7 +59,8 @@
                         <span data-toggle="tooltip" title="Dátum narodenia v tvare napr. 29-Apr-1995 "
                               class="custom-tooltip"><i class="fa fa-question-circle"
                                                         aria-hidden="true"></i> </span><label>Dátum narodenia *</label>
-                    <input id="birthDate" name="birthDate" type="date" class="form-control"
+                    <input id="birthDate" name="birthDate" onblur="validateBirthDate(this)" type="date"
+                           class="form-control"
                            placeholder="Dátum narodenia">
                     <div class="error_message">
                         <ul id="birthDate_error_container">
@@ -76,11 +78,11 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio">
-                        <label class="label label-danger"><input type="radio" name="optradio">Žena <i
+                        <label class="label label-danger"><input id="woman" type="radio" name="optradio">Žena <i
                                 class="fa fa-venus" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio">
-                        <label class="label label-primary"><input type="radio" name="optradio">Muž <i
+                        <label class="label label-primary"><input id="man" type="radio" name="optradio">Muž <i
                                 class="fa fa-mars" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio disabled">
@@ -125,6 +127,7 @@
         <div id="hello-kitty"></div>
     </div>
 </footer>
+<script src="./assets/javascript.dateformat.js"></script>
 <script>
     // Array used for error memorizing.
     var errorMessages = [];
@@ -147,35 +150,84 @@
             errorMessages.push("Dátum narodenia musí byť zadaný!");
         } else {
             var tmp = birthDate.value.split("-");
-            let year = tmp[0];
-            if(year > 2016) {
+            var year = tmp[0];
+            if (year > 2016) {
                 addErrorClass(birthDate);
                 errorMessages.push("Rok narodenia musí byť menší ako 2016.");
+            } else if (year < 1900) {
+                addErrorClass(birthDate);
+                errorMessages.push("Rok narodenia musí byť vyšší než 1900");
+            } else {
+                removeErrorClass(birthDate);
             }
-            console.log('rok je' + year);
         }
         // Show errors.
         showErrorsNearInput('birthDate_error_container');
     }
 
     function validateBirthNum(birthNum) {
+        // TODO validate max days in each month
+        var error = false;
         if (birthNum.value.length == 0) {
             addErrorClass(birthNum);
             errorMessages.push("Rodné číslo musí byť zadané!");
+            error = true;
         } else {
-            // B.Date is set.
-            if (birthNum.value.length != 11) {
+            // B Date is set.
+            if (birthNum.value.length < 10) {
                 addErrorClass(birthNum);
-                errorMessages.push("Dĺžka rodného čísla musí byť 11 znakov. Napr. 960610/2000!");
+                errorMessages.push("Dĺžka rodného čísla musí byť 10 alebo 11 znakov. Napr. 960610/2000 alebo 360431/200!");
+                error = true;
             } else if (birthNum.value[6] != '/') {
                 addErrorClass(birthNum);
-                errorMessages.push("Šiesty znak v rodnom číslo musí byť lomka. Napr. 960610/2000!");
+                errorMessages.push("Siedmy znak v rodnom čísle musí byť lomka. Napr. 960610/2000 alebo 360431/200!");
+                error = true;
             } else {
                 removeErrorClass(birthNum);
             }
         }
+        if (!error) {
+            // If there is no error, lets write data to other inputs.
+            var tmp = birthNum.value.split("/");
+            var tmp2 = tmp[0].match(/.{1,2}/g);
+            // Get year.
+            if (tmp2[0] < 54 && tmp[1].length == 3) {
+                // We have person who was born before 1954.
+                var year = '19' + tmp2[0];
+            } else if (tmp2[0] < 54 && tmp[1].length == 4) {
+                // We have young who was born in or after 2000.
+                var year = '20' + tmp2[0];
+            } else {
+                // We have person who was born after 1954 and is older then 2000.
+                var year = '19' + tmp2[0];
+            }
+            // Get month.
+            if (parseInt(tmp2[1]) > 12) {
+                // We have some woman there.
+                var month = parseInt(tmp2[1]) - 50;
+                document.getElementById("woman").checked = true;
+            } else {
+                var month = tmp2[1];
+                document.getElementById("man").checked = true;
+            }
+            var day = tmp2[2];
+            // Calculate and add age to input.
+            var newDate = month + "/" + day + "/" + year;
+            var birthDay = new Date(newDate);
+            console.log('birthday ' + birthDay);
+            var age = _calculateAge(birthDay.getTime());
+            document.getElementById('age').value = age;
+            // Add date to input.
+            document.getElementById('birthDate').value = birthDay.format("yyyy-mm-dd");
+        }
         // Show errors.
         showErrorsNearInput('birthNum_error_container');
+    }
+
+    function _calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - birthday;
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
 
     function validateAge(age) {

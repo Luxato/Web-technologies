@@ -91,18 +91,16 @@
                     </div>
                 </div>
 
-                <div class="space"></div>
-
                 <div class="form-group">
-                    <label for="">Obľúbená rozprávka</label>
-                    <select class="selectpicker">
+                    <label for="selectbox">Obľúbená rozprávka</label>
+                    <select id="selectbox" class="selectpicker">
                         <option value="none" selected disabled>Vyberte si</option>
-                        <option data-icon="glyphicon-heart">Shrek</option>
-                        <option data-icon="glyphicon-heart">Cesta do fantázie</option>
-                        <option data-icon="glyphicon-heart">Ako vycvičiť draka</option>
-                        <option data-icon="glyphicon-heart">Leví kráľ</option>
-                        <option data-icon="glyphicon-heart">Hľadá sa Nemo</option>
-                        <option data-icon="glyphicon-heart">Lady a Tramp</option>
+                        <option class="for-woman" data-icon="glyphicon-heart">Shrek</option>
+                        <option class="for-woman" data-icon="glyphicon-heart">Cesta do fantázie</option>
+                        <option class="for-woman" data-icon="glyphicon-heart">Ako vycvičiť draka</option>
+                        <option class="for-man" data-icon="glyphicon-heart">Leví kráľ</option>
+                        <option class="for-man" data-icon="glyphicon-heart">Hľadá sa Nemo</option>
+                        <option class="for-man" data-icon="glyphicon-heart">Lady a Tramp</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -133,11 +131,6 @@
     var errorMessages = [];
 
     function validateForm(myForm) {
-        /*        console.log(myForm);
-         console.log(myForm.email.value);
-         console.log(myForm.birthNum.value);
-         console.log(myForm.age.value);*/
-        console.log(myForm.birthDate.value);
         validateEmail(myForm.email);
         validateBirthNum(myForm.birthNum);
         validateBirthDate(myForm.birthDate);
@@ -203,18 +196,19 @@
             }
             // Get month.
             if (parseInt(tmp2[1]) > 12) {
-                // We have some woman there.
+                // We have some woman here.
                 var month = parseInt(tmp2[1]) - 50;
                 document.getElementById("woman").checked = true;
+                sortCartoons(1); // Sort cartoons for woman.
             } else {
                 var month = tmp2[1];
                 document.getElementById("man").checked = true;
+                sortCartoons(0); // Sort cartoons for men.
             }
             var day = tmp2[2];
             // Calculate and add age to input.
             var newDate = month + "/" + day + "/" + year;
             var birthDay = new Date(newDate);
-            console.log('birthday ' + birthDay);
             var age = _calculateAge(birthDay.getTime());
             document.getElementById('age').value = age;
             // Add date to input.
@@ -222,6 +216,39 @@
         }
         // Show errors.
         showErrorsNearInput('birthNum_error_container');
+    }
+
+    function sortCartoons(gender) {
+        // Gender 0 is man, gender 1 is woman.
+        gender = gender ? 'woman' : 'man';
+        var select = document.getElementById('selectbox').options;
+        var dynamicInputs = document.getElementsByClassName("dropdown-menu inner");
+        dynamicInputs = dynamicInputs[0].getElementsByTagName("li");
+        select[1].selected = 'selected';
+        for (var i = 1, max = select.length; i < max; i++) {
+            // Show woman cartoons, hide men cartoons
+            if (gender == 'woman') {
+                if (select[i].className.indexOf('for-woman') !== -1) {
+                    select[i].className = select[i].className.replace('hidden', '');
+                    dynamicInputs[i].className = dynamicInputs[i].className.replace('hidden', '');
+                }
+                if (select[i].className.indexOf('for-man') !== -1) {
+                    select[i].className = 'for-man hidden';
+                    dynamicInputs[i].className = 'hidden';
+                }
+            }
+            // Show man cartoons, hide woman cartoons.
+            if (gender == 'man') {
+                if (select[i].className.indexOf('for-man') !== -1) {
+                    select[i].className = select[i].className.replace('hidden', '');
+                    dynamicInputs[i].className = dynamicInputs[i].className.replace('hidden', '');
+                }
+                if (select[i].className.indexOf('for-woman') !== -1) {
+                    select[i].className = 'for-woman hidden';
+                    dynamicInputs[i].className = 'hidden';
+                }
+            }
+        }
     }
 
     function _calculateAge(birthday) { // birthday is a date
@@ -240,6 +267,9 @@
             if (age.value < 0) {
                 addErrorClass(age);
                 errorMessages.push("Vek nesmie byť záporné číslo!");
+            } else if(age.value > 120) {
+                addErrorClass(age);
+                errorMessages.push("Vek nesmie byť vyšší ako 120 rokov!");
             } else {
                 removeErrorClass(age);
             }
@@ -294,10 +324,11 @@
      * @param element
      */
     function addErrorClass(element) {
-        // TODO add only once custom-error class, prevent duplicates
         var classString = element.className;
-        var newClass = classString.concat(" custom-error");
-        element.className = newClass;
+        if (classString.indexOf('custom-error') === -1) { // Prevent duplicate classes.
+            var newClass = classString.concat(" custom-error");
+            element.className = newClass;
+        }
     }
 
     /**
@@ -309,6 +340,23 @@
         var newClass = classString.replace("custom-error", "");
         element.className = newClass;
     }
+
+    var _woman = document.getElementById('woman');
+    var _man = document.getElementById('man');
+    _woman.onchange = function () {
+        if (_woman.checked) {
+            sortCartoons(1);
+        } else {
+            sortCartoons(0);
+        }
+    };
+    _man.onchange = function () {
+        if (_woman.checked) {
+            sortCartoons(1);
+        } else {
+            sortCartoons(0);
+        }
+    };
 
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();

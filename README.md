@@ -33,3 +33,25 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 5.	Informácie na stránke musia byť v kódovaní UTF-8.
 6.	Zadanie formátujte len pomocou CSS (žiadne fyzické HTML štýly).
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
+##Homework#3
+Vytvorte váš vlastný zmysluplný formulár. Zameranie formuláru si môžete určiť sami, musia však byť splnené nasledovné požiadavky:
+1.	formulár musí obsahovať minimálne:
+o	2x jednoriadkové textové pole,
+o	viacriadkové textové pole (textarea),
+o	zaškrtávacie pole (checkbox),
+o	prepínač (radio button) s prednastavenou hodnotou,
+o	rozbaľovací zoznam (combobox),
+o	skryté textové pole, do ktorého vložíte svoje meno.
+2.	vo formulári bude potrebné odosielať položky dátum narodenia, pohlavie, vek a rodné číslo vrátane lomítka. Zabezpečte, aby sa po vyplnení rodného čísla (zadané rodné číslo musí spĺňať požiadavky na rodné číslo) položky dátum narodenia, pohlavie a vek predvyplnili údajmi, ktoré je možné z neho odvodiť. Zároveň zabezpečte, aby v prípade, že sú údaje neplatné, formulár nebolo možné odoslať. T.j. skontrolujte, či zadané pohlavie, vek a dátum narodenia zodpovedajú uvedenému rodnému číslu, keďže tieto položky musia pre účely zadania ostať prepisovateľné. 
+Pozn.: pri vypĺňaní formuláru nemusíte zadávať vlastné rodné číslo, môžete si vygenerovať náhodné číslo.
+3.	vo formulári budú minimálne 2 položky vzájomne prepojené, t.j. napr. obsah druhého rozbaľovacieho zoznamu bude závisieť od výberu položky v prvom rozbaľovacom zozname alebo časť formuláru sa zobrazí až po zaškrtnutí prepínača alebo zaškrtávacieho poľa a pod.
+4.	v jednom jednoriadkovom textovom poli musí byť mailová adresa, ktorá bude obsahovať zavináč, minimálne 2 domény, pričom vrcholová doména bude mať 2-4 znaky. Pred zavináčom musia byť minimálne 3 znaky.
+5.	minimálne štyri povinné položky formulára musia byť vyznačené. 
+6.	pri jednotlivých položkách formulára poskytnite užívateľovi nápovedu, ako má danú položku vyplniť. Pri zlom vyplnení položky je treba dať užívateľovi hneď po jej opustení vedieť (t.j. nie až pri odosielaní formulára), v čom presne spočíva chyba, pre ktorú sa formulár nedá odoslať (aj v prípade previazanosti položiek). 
+
+Formulár musí mať prijateľný vzhľad (t.j. jednotlivé položky v ňom nemôžu byť len "nahádzané", ale musia byť pekne sformátované a zarovnané). Hodnotí sa aj grafický dojem.
+Odovzdanie zadania bude spočívať v troch bodoch (všetky tri budú súčasťou bodovania):
+1.	Vytvorený formulár vyplníte (nezabudnite vyplniť a vyznačiť všetky položky) a odošlete na mail jedným z nasledujúcich spôsobov:
+a.	pomocou metódy mailto.
+b.	pomocou niektorej z voľne dostupných služieb na Internete. Môžete využiť službu spomenutú na prednáške, resp. môžete využiť našu službu, ktorá je momentálne k dispozícii na adrese http://vmzakova.fei.stuba.sk/form2mail/.
+

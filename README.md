@@ -33,6 +33,8 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 5.	Informácie na stránke musia byť v kódovaní UTF-8.
 6.	Zadanie formátujte len pomocou CSS (žiadne fyzické HTML štýly).
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
+
+
 ##Homework#3
 Vytvorte váš vlastný zmysluplný formulár. Zameranie formuláru si môžete určiť sami, musia však byť splnené nasledovné požiadavky:
 1.	formulár musí obsahovať minimálne:

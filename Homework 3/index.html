@@ -37,15 +37,13 @@
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="email">Emailová
                     adresa *</label>
                     <input name="email" type="email" onblur="validateEmail(this)" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
-                    <div id="email_error_container" class="error_message">
-                        <ul>
-                            <li>Neda sa odoslat</li>
-                            <li>Asi mi sibe</li>
+                    <div class="error_message">
+                        <ul id="email_error_container">
                         </ul>
                     </div>
                 </div>
                 <div class="form-group">
-                        <span data-toggle="tooltip" title="Rodné číslo s lomkou alebo bez" class="custom-tooltip"><i
+                        <span data-toggle="tooltip" title="Rodné číslo zadávajte s lomkou" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="birthNum">Rodné
                     číslo *</label>
                     <input id="birthNum" name="birthNum" type="text" class="form-control" placeholder="napr. 758598/7863">
@@ -143,6 +141,7 @@
                 removeErrorClass(age);
             }
         }
+        // Show errors.
         showErrorsNearInput('age_error_container');
     }
 
@@ -172,13 +171,18 @@
 
         if (email.value == "") {
             addErrorClass(email);
+            errorMessages.push("Email musi byt zadany!");
         } else if (!emailFilter.test(temail)) { //test email for illegal characters
             addErrorClass(email);
+            errorMessages.push("Email obsahuje nepovolene znaky!");
         } else if (email.value.match(illegalChars)) {
             addErrorClass(email);
+            errorMessages.push("Email je neplatny!");
         } else {
             removeErrorClass(email);
         }
+        // Show errors.
+        showErrorsNearInput('email_error_container');
     }
 
     /**

@@ -105,3 +105,7 @@ footer {
     background: #ffa2ad !important;
     border: 1px solid #ff1939;
 }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: white !important;
+}

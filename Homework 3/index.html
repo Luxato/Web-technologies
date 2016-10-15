@@ -47,7 +47,7 @@
                         <span data-toggle="tooltip" title="Rodné číslo zadávajte s lomkou" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="birthNum">Rodné
                     číslo *</label>
-                    <input id="birthNum" name="birthNum" type="text" class="form-control"
+                    <input id="birthNum" name="birthNum" onblur="validateBirthNum(this)" type="text" class="form-control"
                            placeholder="napr. 758598/7863">
                     <div class="error_message">
                         <ul id="birthNum_error_container">
@@ -60,6 +60,10 @@
                                                         aria-hidden="true"></i> </span><label>Dátum narodenia *</label>
                     <input id="birthDate" name="birthDate" type="date" class="form-control"
                            placeholder="Dátum narodenia">
+                    <div class="error_message">
+                        <ul id="birthDate_error_container">
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="age">Vek *</label>
@@ -130,11 +134,28 @@
          console.log(myForm.email.value);
          console.log(myForm.birthNum.value);
          console.log(myForm.age.value);*/
-
+        console.log(myForm.birthDate.value);
         validateEmail(myForm.email);
         validateBirthNum(myForm.birthNum);
+        validateBirthDate(myForm.birthDate);
         validateAge(myForm.age);
-        console.log(myForm.birthDate.value);
+    }
+
+    function validateBirthDate(birthDate) {
+        if (birthDate.value.length == 0) {
+            addErrorClass(birthDate);
+            errorMessages.push("Dátum narodenia musí byť zadaný!");
+        } else {
+            var tmp = birthDate.value.split("-");
+            let year = tmp[0];
+            if(year > 2016) {
+                addErrorClass(birthDate);
+                errorMessages.push("Rok narodenia musí byť menší ako 2016.");
+            }
+            console.log('rok je' + year);
+        }
+        // Show errors.
+        showErrorsNearInput('birthDate_error_container');
     }
 
     function validateBirthNum(birthNum) {

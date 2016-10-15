@@ -109,3 +109,13 @@ footer {
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: white !important;
 }
+
+.error_message {
+    font-size:10px;
+    padding-left: 5px;
+}
+.error_message ul {
+    margin: 0;
+    padding-left: 6px;
+    list-style-type: none;
+}

@@ -37,6 +37,12 @@
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="email">Emailová
                     adresa *</label>
                     <input name="email" type="email" onblur="validateEmail(this)" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
+                    <div id="email_error_container" class="error_message">
+                        <ul>
+                            <li>Neda sa odoslat</li>
+                            <li>Asi mi sibe</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Rodné číslo s lomkou alebo bez" class="custom-tooltip"><i
@@ -53,6 +59,10 @@
                 <div class="form-group">
                     <label for="age">Vek *</label>
                     <input id="age" name="age" onblur="validateAge(this)" type="number" min="0" class="form-control" placeholder="napr. 38">
+                    <div class="error_message">
+                        <ul id="age_error_container">
+                        </ul>
+                    </div>
                 </div>
                 <div class="radio-group">
                     <div class="radio">
@@ -90,7 +100,7 @@
                 <div class="checkbox">
                     <label><input type="checkbox" checked>Chcem sa prihlásiť na odber noviniek</label>
                 </div>
-                <button type="submit" class="btn btn-lg btn-success">Odoslať</button>
+                <button type="submit" class="btn btn-md btn-success pull-right">Odoslať</button>
             </form>
         </div>
     </div>
@@ -106,11 +116,14 @@
     </div>
 </footer>
 <script>
+    // Array used for error memorizing.
+    var errorMessages = [];
+
     function validateForm(myForm) {
-        console.log(myForm);
+/*        console.log(myForm);
         console.log(myForm.email.value);
         console.log(myForm.birthNum.value);
-        console.log(myForm.age.value);
+        console.log(myForm.age.value);*/
         validateEmail(myForm.email);
         validateAge(myForm.age);
         console.log(myForm.birthDate.value);
@@ -118,15 +131,31 @@
 
     function validateAge(age) {
         if (age.value.length == 0 ) {
-            /*age.style.background = 'Red';*/
+            // When age is not set.
             addErrorClass(age);
+            errorMessages.push("Vek musi byť zadany!");
         } else {
+            // Age is set
             if (age.value < 0) {
                 addErrorClass(age);
+                errorMessages.push("Vek nesmie byť záporné číslo!");
             } else {
                 removeErrorClass(age);
             }
         }
+        showErrorsNearInput('age_error_container');
+    }
+
+    function showErrorsNearInput(inputID) {
+        var result = "";
+        for (var i = 0, max = errorMessages.length; i < max; i++) {
+            result += "<li>";
+            result += errorMessages[i];
+            result += "</li>";
+        }
+        // Errors are saved, lets null array.
+        errorMessages = [];
+        document.getElementById(inputID).innerHTML = result;
     }
 
     /**

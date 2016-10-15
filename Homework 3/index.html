@@ -26,7 +26,11 @@
 </head>
 <body>
 <section class="pink"></section>
-<section class="pinky-pink"></section>
+<section class="pinky-pink">
+    <div class="relative-wrapper">
+        <div id="happy-muffin"></div>
+    </div>
+</section>
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 form-top">
@@ -174,7 +178,6 @@
     }
 
     function validateBirthNum(birthNum) {
-        // TODO validate max days in each month
         var error = false;
         if (birthNum.value.length == 0) {
             addErrorClass(birthNum);

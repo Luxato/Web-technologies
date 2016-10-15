@@ -20,18 +20,27 @@ section {
 }
 .relative-wrapper {
     position: relative;
+    height: 480px;
 }
 #happy-muffin {
     background: url(./happy_muffin.png);
     height: 231px;
     width: 173px;
-    z-index: 9999;
+    z-index: 0;
     position: absolute;
-    right: 202px;
-    top: -130px;
+    bottom: 0;
+    right: 230px;
+}
+#shadow {
+    margin: 0 auto;
+    display: block;
+    opacity: 0.4;
+    position: relative;
+    bottom: -40px;
 }
 .pinky-pink {
     bottom: 0;
+    z-index: -1;
 }
 
 .pink {

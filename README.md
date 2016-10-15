@@ -37,6 +37,7 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 
 ##Homework#3
 Vytvorte váš vlastný zmysluplný formulár. Zameranie formuláru si môžete určiť sami, musia však byť splnené nasledovné požiadavky:
+
 1.	formulár musí obsahovať minimálne:
 o	2x jednoriadkové textové pole,
 o	viacriadkové textové pole (textarea),
@@ -55,5 +56,5 @@ Formulár musí mať prijateľný vzhľad (t.j. jednotlivé položky v ňom nem�
 Odovzdanie zadania bude spočívať v troch bodoch (všetky tri budú súčasťou bodovania):
 1.	Vytvorený formulár vyplníte (nezabudnite vyplniť a vyznačiť všetky položky) a odošlete na mail jedným z nasledujúcich spôsobov:
 a.	pomocou metódy mailto.
-b.	pomocou niektorej z voľne dostupných služieb na Internete. Môžete využiť službu spomenutú na prednáške, resp. môžete využiť našu službu, ktorá je momentálne k dispozícii na adrese http://vmzakova.fei.stuba.sk/form2mail/.
+b.	pomocou niektorej z voľne dostupných služieb na Internete.
 

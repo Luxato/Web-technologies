@@ -9,6 +9,7 @@ MIT license
 
 Vytvorte si osobnú web stránku. Je potrebné, aby zadanie spĺňalo nasledovné požiadavky:
 1.	Dokument zostavte podľa odporúčaní HTML 5 (nesmie chýbať DOCTYPE).
+
 2.	Stránku validujte podľa HTML5 a CSS3. Pokiaľ pri tvorbe CSS chcete použiť vlastnosti, ktoré ešte nie sú štandardizované, t.j. využívajú predpony výrobcu prehliadačov (vendor prefix) je to možné. Takéto pravidlá nemusia byť validné. Všetky ostatné však áno.
 3.	Celá osobná web stránka sa bude skladať z 3 podstránok - "O mne", "Môj rozvrh", "Kontakt". Bude napísaná v slovenskom jazyku a s použitím diakritiky.
 4.	Používajte len značky s atribútami, ktoré povoľuje HTML 5. Pri definovaní štruktúry stránky maximálne využili sémantické značky, ktoré so sebou prináša HTML5 (header, footer, nav, section, article, address, ...). Príklad štruktúry stránky bez formátovania môžete vidieť na obrázkoch pod zadaním.Podľa potreby doplňte do štruktúry stránok identifikátory a triedy. Rozlišujte medzi nimi a používajte ich správne.
@@ -22,7 +23,6 @@ Pri formátovaní podstránky "O mne" nechajte vašu fotografiu obtekať textom,
 Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvičenia a telesnú kultúru.
 9.	Podstránka "Kontakt" bude obsahovať vaše kontaktné informácie s dôrazom na elektronickú možnosť kontaktovania.
 10.	Nezabudnite na názov celej stránky.
-11.	Dajte si záležať na vzhľade. Nezabudnite na to, že vzhľad predáva. V tomto zadaní sa na vzhľad kladie veľký dôraz aj pri hodnotení. Výnimočne pekné zadania môžu byť zverejnené ako ukážka pre ostatných spolužiakov a odmenené bonusovým bodom.
 
 
 ##Homework#2
@@ -33,5 +33,3 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 5.	Informácie na stránke musia byť v kódovaní UTF-8.
 6.	Zadanie formátujte len pomocou CSS (žiadne fyzické HTML štýly).
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
-8.	Nezabudnite na to, že vzhľad predáva. Výnimočne pekné zadania môžu byť zverejnené ako ukážka pre ostatných spolužiakov a odmenené bonusovým bodom.
-

@@ -30,29 +30,29 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 form-top">
-            <form id="myForm" name="myForm">
+            <form id="myForm" name="myForm" onsubmit="return validateForm(this)" method="post">
                 <input name="name" type="hidden" value="Lukas Stranovsky">
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Validná emailová adresa" class="custom-tooltip"><i
                                 class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="email">Emailová
                     adresa *</label>
-                    <input type="email" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
+                    <input name="email" type="email" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
                 </div>
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Rodné číslo s lomkou alebo bez" class="custom-tooltip"><i
-                                class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="pwd">Rodné
+                                class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="birthNum">Rodné
                     číslo *</label>
-                    <input type="text" class="form-control" id="pwd" placeholder="napr. 758598/7863">
+                    <input id="birthNum" name="birthNum" type="text" class="form-control" placeholder="napr. 758598/7863">
                 </div>
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Dátum narodenia v tvare napr. 29-Apr-1995 "
                               class="custom-tooltip"><i class="fa fa-question-circle"
                                                         aria-hidden="true"></i> </span><label>Dátum narodenia *</label>
-                    <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Dátum narodenia">
+                    <input id="birthDate" name="birthDate" type="date" class="form-control" placeholder="Dátum narodenia">
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Vek *</label>
-                    <input type="number" class="form-control" id="birth_date" placeholder="napr. 38">
+                    <label for="age">Vek *</label>
+                    <input id="age" name="age" type="number" min="0" class="form-control" placeholder="napr. 38">
                 </div>
                 <div class="radio-group">
                     <div class="radio">
@@ -106,8 +106,45 @@
     </div>
 </footer>
 <script>
+    function validateForm(myForm) {
+        console.log(myForm);
+        console.log(myForm.email.value);
+        console.log(myForm.birthNum.value);
+        console.log(myForm.age.value);
+        validateAge(myForm.age);
+        console.log(myForm.birthDate.value);
+    }
+
+    function validateAge(age) {
+        if (age.value.length == 0 ) {
+            /*age.style.background = 'Red';*/
+            addErrorClass(age);
+        } else {
+            if (age.value < 0) {
+                addErrorClass(age);
+            } else {
+                removeErrorClass(age);
+            }
+        }
+    }
+
+    function addErrorClass(element) {
+        var classString = element.className;
+        var newClass = classString.concat(" custom-error");
+        element.className = newClass;
+    }
+
+    function removeErrorClass(element) {
+        var classString = element.className;
+        var newClass = classString.replace("custom-error", "");
+        element.className = newClass;
+    }
+
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
+        $('#myForm').submit(function(e) {
+            e.preventDefault();
+        });
     });
 </script>
 </body>

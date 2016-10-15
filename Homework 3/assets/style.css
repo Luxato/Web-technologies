@@ -99,3 +99,9 @@ footer {
 .custom-tooltip {
     cursor: pointer;
 }
+
+.custom-error {
+    color: #000;
+    background: #ffa2ad !important;
+    border: 1px solid #ff1939;
+}

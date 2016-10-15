@@ -21,63 +21,77 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 <section class="pink">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-lg-offset-3">
+            <div class="col-lg-6 col-lg-offset-3 form-top">
                 <form>
                     <input name="name" type="hidden" value="Lukas Stranovsky">
                     <div class="form-group">
-                        <label for="email">Emailová adresa</label>
-                        <input type="email" class="form-control" id="email">
+                        <span data-toggle="tooltip" title="Hooray!" class="custom-tooltip"><i class="fa fa-question-circle" aria-hidden="true"></i> </span><label for="email">Emailová adresa *</label>
+                        <input type="email" class="form-control" id="email" placeholder="napr. mnamky@mnam.sk">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <label for="pwd">Rodné číslo *</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="napr. 758598/7863">
                     </div>
+                        <div class="form-group">
+                            <label>Dátum narodenia *</label>
+                            <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Dátum narodenia">
+                        </div>
                     <div class="form-group">
-                        <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <label for="pwd">Vek *</label>
+                        <input type="number" class="form-control" id="birth_date" placeholder="napr. 38">
                     </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox"> Remember me</label>
+                    <div class="radio-group">
+                    <div class="radio">
+                        <label class="label label-danger"><input type="radio" name="optradio">Žena <i class="fa fa-venus" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="optradio" checked>Option 1</label>
-                    </div>
-                    <div class="radio">
-                        <label><input type="radio" name="optradio">Option 2</label>
+                        <label class="label label-primary"><input type="radio" name="optradio">Muž <i class="fa fa-mars" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio disabled">
-                        <label><input type="radio" name="optradio" disabled>Option 3</label>
+                        <label class="label label-default"><input type="radio" name="optradio" checked disabled>Niečo medzi <i class="fa fa-question" aria-hidden="true"></i></label>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="pinky-pink">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-lg-offset-3">
-                <form>
+                    </div>
+                    <div class="space"></div>
+
                     <div class="form-group">
-                        <label for="email">Email address:</label>
+                        <label for="">Obľúbená rozprávka</label>
                         <select class="selectpicker">
-                            <option data-icon="glyphicon-heart">Ketchup</option>
+                            <option data-icon="glyphicon-heart">Shrek</option>
+                            <option data-icon="glyphicon-heart">Cesta do fantázie</option>
+                            <option data-icon="glyphicon-heart">Ako vycvičiť draka</option>
+                            <option data-icon="glyphicon-heart">Leví kráľ</option>
+                            <option data-icon="glyphicon-heart">Hľadá sa Nemo</option>
+                            <option data-icon="glyphicon-heart">Lady a Tramp</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                    <div class="form-group">
+                        <label for="comment">Odkaz pre nás</label>
+                        <textarea class="form-control" rows="2" id="comment"></textarea>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" checked>Chcem sa prihlásiť na odber noviniek</label>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-success pull-right">Odoslať</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<section class="pinky-pink"></section>
 <footer>
     <div id="hello-kitty"></div>
 </footer>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>

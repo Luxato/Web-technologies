@@ -19,13 +19,27 @@ footer {
     width: 80%;
     position: relative;
 }
+#github-img a {
+    color: #000;
+}
+#github-img a:hover, #github-img a:focus {
+    font-size: 26px;
+}
+#github-img {
+    font-size: 25px;
+    position: relative;
+    top: 82px;
+    left: 71px;
+}
+#footer-img {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+}
 #hello-kitty {
     height: 150px;
     width: 150px;
     background: url(hello-kitty.png);
-    position: absolute;
-    bottom: 0;
-    left: 10%;
 }
 .form-top {
     background: #fb93d7;

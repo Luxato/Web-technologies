@@ -1,5 +1,11 @@
 # Web technologies
-Homework#1
+
+## Synopsis
+Homeworks for school subject Web technologies.
+Every single homework is in own directory.
+##Licence
+MIT license
+## Homework#1
 
 Vytvorte si osobnú web stránku. Je potrebné, aby zadanie spĺňalo nasledovné požiadavky:
 1.	Dokument zostavte podľa odporúčaní HTML 5 (nesmie chýbať DOCTYPE).
@@ -19,7 +25,7 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 11.	Dajte si záležať na vzhľade. Nezabudnite na to, že vzhľad predáva. V tomto zadaní sa na vzhľad kladie veľký dôraz aj pri hodnotení. Výnimočne pekné zadania môžu byť zverejnené ako ukážka pre ostatných spolužiakov a odmenené bonusovým bodom.
 
 
-Homework#2
+##Homework#2
 1.	Vytvorte validné web stránky (HTML 5), na ktorých zobrazíte vybrané geografické údaje.
 2.	Na Internete si vyhľadajte čo najjednoduchšiu voľne dostupnú mapu Slovenska. Nezabudnite neskôr na Vašej stránke uviesť klikateľný odkaz na stránku, odkiaľ ste ju prevzali.
 3.	Vytvorte web stránku s mapou, kde budú zvýraznené 4 vybrané mestá. Z mapy alebo zo stránky musí byť jasné, ktoré 4 mestá sú aktívne (najlepšie pomocou markerov). Štruktúra vytvorenej webstránky by mala byť v súlade so špecifikáciou HTML5 (treba používať sémantické značky).
@@ -29,10 +35,3 @@ Homework#2
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
 8.	Nezabudnite na to, že vzhľad predáva. Výnimočne pekné zadania môžu byť zverejnené ako ukážka pre ostatných spolužiakov a odmenené bonusovým bodom.
 
-
-
-## Synopsis
-Homeworks for school subject Web technologies.
-Every single homework is in own directory.
-##Licence
-MIT license

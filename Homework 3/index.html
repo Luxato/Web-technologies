@@ -34,7 +34,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 form-top">
-            <form id="myForm" name="myForm" onsubmit="return validateForm(this)" method="post">
+            <form id="myForm" name="myForm" onsubmit="return validateForm()" method="post" action="http://jozef.stranovsky.sk/webtech.php">
                 <input name="name" type="hidden" value="Lukas Stranovsky">
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Validná emailová adresa" class="custom-tooltip"><i
@@ -82,22 +82,22 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio">
-                        <label class="label label-danger"><input id="woman" type="radio" name="optradio">Žena <i
+                        <label class="label label-danger"><input id="woman" type="radio" name="gender" value="woman">Žena <i
                                 class="fa fa-venus" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio">
-                        <label class="label label-primary"><input id="man" type="radio" name="optradio">Muž <i
+                        <label class="label label-primary"><input id="man" type="radio" name="gender" value="man">Muž <i
                                 class="fa fa-mars" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio disabled">
-                        <label class="label label-default"><input type="radio" name="optradio" checked disabled>Niečo
+                        <label class="label label-default"><input type="radio" name="gender" checked disabled value="Other">Niečo
                             medzi <i class="fa fa-question" aria-hidden="true"></i></label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="selectbox">Obľúbená rozprávka</label>
-                    <select id="selectbox" class="selectpicker">
+                    <select name="cartoon" id="selectbox" class="selectpicker">
                         <option value="none" selected disabled>Vyberte si</option>
                         <option class="for-woman" data-icon="glyphicon-heart">Shrek</option>
                         <option class="for-woman" data-icon="glyphicon-heart">Cesta do fantázie</option>
@@ -109,10 +109,10 @@
                 </div>
                 <div class="form-group">
                     <label for="comment">Odkaz pre nás</label>
-                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                    <textarea name="textForUs" class="form-control" rows="2" id="comment"></textarea>
                 </div>
                 <div class="checkbox">
-                    <label><input type="checkbox" checked>Chcem sa prihlásiť na odber noviniek</label>
+                    <label><input name="newsletter" type="checkbox" checked>Chcem sa prihlásiť na odber noviniek</label>
                 </div>
                 <button type="submit" class="btn btn-md btn-success pull-right">Odoslať</button>
             </form>
@@ -150,32 +150,45 @@
         "12": 31
     };
 
-    function validateForm(myForm) {
-        validateEmail(myForm.email);
-        validateBirthNum(myForm.birthNum);
-        validateBirthDate(myForm.birthDate);
-        validateAge(myForm.age);
+    function validateForm() {
+        var myForm = document.getElementById("myForm");
+        var error = '';
+        error = error + validateEmail(myForm.email);
+        error = error + validateBirthDate(myForm.birthDate);
+        error = error + validateAge(myForm.age);
+        error = error + validateBirthNum(myForm.birthNum);
+        console.log(error);
+        if (error.indexOf('true') == -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function validateBirthDate(birthDate) {
+        var error = 'false';
         if (birthDate.value.length == 0) {
             addErrorClass(birthDate);
             errorMessages.push("Dátum narodenia musí byť zadaný!");
+            error = 'true';
         } else {
             var tmp = birthDate.value.split("-");
             var year = tmp[0];
             if (year > 2016) {
                 addErrorClass(birthDate);
                 errorMessages.push("Rok narodenia musí byť menší ako 2016.");
+                error = 'true';
             } else if (year < 1900) {
                 addErrorClass(birthDate);
                 errorMessages.push("Rok narodenia musí byť vyšší než 1900");
+                error = 'true';
             } else {
                 removeErrorClass(birthDate);
             }
         }
         // Show errors.
         showErrorsNearInput('birthDate_error_container');
+        return error;
     }
 
     function validateBirthNum(birthNum) {
@@ -229,8 +242,6 @@
             if(month[0] == 0) {
                 var month = month.substr(1);
             }
-            console.log(day);
-            console.log(months[month]);
             if(day > months[month]) {
                 // We have more days then allowed.
                 addErrorClass(birthNum);
@@ -243,9 +254,12 @@
             document.getElementById('age').value = age;
             // Add date to input.
             document.getElementById('birthDate').value = birthDay.format("yyyy-mm-dd");
+            return 'false';
+        } else {
+            // Show errors.
+            showErrorsNearInput('birthNum_error_container');
+            return 'true';
         }
-        // Show errors.
-        showErrorsNearInput('birthNum_error_container');
     }
 
     function sortCartoons(gender) {
@@ -288,24 +302,29 @@
     }
 
     function validateAge(age) {
+        var error = 'false';
         if (age.value.length == 0) {
             // When age is not set.
             addErrorClass(age);
             errorMessages.push("Vek musi byť zadany!");
+            error = 'true';
         } else {
             // Age is set
             if (age.value < 0) {
                 addErrorClass(age);
                 errorMessages.push("Vek nesmie byť záporné číslo!");
+                error = 'true';
             } else if(age.value > 120) {
                 addErrorClass(age);
                 errorMessages.push("Vek nesmie byť vyšší ako 120 rokov!");
+                error = 'true';
             } else {
                 removeErrorClass(age);
             }
         }
         // Show errors.
         showErrorsNearInput('age_error_container');
+        return error;
     }
 
     function showErrorsNearInput(inputID) {
@@ -329,6 +348,7 @@
     }
 
     function validateEmail(email) {
+        var error = 'false';
         var temail = trim(email.value); // value of field with whitespace trimmed off
         var emailFilter = /^[^@]+@[^@.]+\.[^@]*\w\w$/;
         var illegalChars = /[\(\)\<\>\,\;\:\\\"\[\]]/;
@@ -336,17 +356,21 @@
         if (email.value == "") {
             addErrorClass(email);
             errorMessages.push("Email musi byt zadany!");
+            error = 'true';
         } else if (!emailFilter.test(temail)) { //test email for illegal characters
             addErrorClass(email);
             errorMessages.push("Email obsahuje nepovolene znaky!");
+            error = 'true';
         } else if (email.value.match(illegalChars)) {
             addErrorClass(email);
             errorMessages.push("Email je neplatny!");
+            error = 'true';
         } else {
             removeErrorClass(email);
         }
         // Show errors.
         showErrorsNearInput('email_error_container');
+        return error;
     }
 
     /**
@@ -390,9 +414,9 @@
 
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-        $('#myForm').submit(function (e) {
+        /*$('#myForm').submit(function (e) {
             e.preventDefault();
-        });
+        });*/
     });
 </script>
 </body>

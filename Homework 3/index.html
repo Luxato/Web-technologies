@@ -34,7 +34,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 form-top">
-            <form id="myForm" name="myForm" onsubmit="return validateForm()" method="post" action="http://jozef.stranovsky.sk/webtech.php">
+            <form id="myForm" name="myForm" onsubmit="return validateForm()" method="post"
+                  action="http://jozef.stranovsky.sk/webtech.php">
                 <input name="name" type="hidden" value="Lukas Stranovsky">
                 <div class="form-group">
                         <span data-toggle="tooltip" title="Validná emailová adresa" class="custom-tooltip"><i
@@ -82,19 +83,24 @@
                 </div>
                 <div class="radio-group">
                     <div class="radio">
-                        <label class="label label-danger"><input id="woman" type="radio" name="gender" value="woman">Žena <i
-                                class="fa fa-venus" aria-hidden="true"></i></label>
+                        <label class="label label-danger"><input id="woman" type="radio" name="gender" value="woman">Žena
+                            <i
+                                    class="fa fa-venus" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio">
                         <label class="label label-primary"><input id="man" type="radio" name="gender" value="man">Muž <i
                                 class="fa fa-mars" aria-hidden="true"></i></label>
                     </div>
                     <div class="radio disabled">
-                        <label class="label label-default"><input type="radio" name="gender" checked disabled value="Other">Niečo
+                        <label class="label label-default"><input type="radio" name="gender" checked disabled
+                                                                  value="Other">Niečo
                             medzi <i class="fa fa-question" aria-hidden="true"></i></label>
                     </div>
                 </div>
-
+                <div class="error_message">
+                    <ul id="gender_error_container">
+                    </ul>
+                </div>
                 <div class="form-group">
                     <label for="selectbox">Obľúbená rozprávka</label>
                     <select name="cartoon" id="selectbox" class="selectpicker">
@@ -153,11 +159,13 @@
     function validateForm() {
         var myForm = document.getElementById("myForm");
         var error = '';
+        if(isBirthNumSameAsBirthDateAgeGender() == false) {
+            return false;
+        }
         error = error + validateEmail(myForm.email);
         error = error + validateBirthDate(myForm.birthDate);
         error = error + validateAge(myForm.age);
         error = error + validateBirthNum(myForm.birthNum);
-        console.log(error);
         if (error.indexOf('true') == -1) {
             return true;
         } else {
@@ -239,10 +247,10 @@
             }
             var day = tmp2[2];
             // Check if days in month are valid
-            if(month[0] == 0) {
+            if (month[0] == 0) {
                 var month = month.substr(1);
             }
-            if(day > months[month]) {
+            if (day > months[month]) {
                 // We have more days then allowed.
                 addErrorClass(birthNum);
                 errorMessages.push("Pre mesiac " + month + " je maximalny pocet dni len " + months[month]);
@@ -314,7 +322,7 @@
                 addErrorClass(age);
                 errorMessages.push("Vek nesmie byť záporné číslo!");
                 error = 'true';
-            } else if(age.value > 120) {
+            } else if (age.value > 120) {
                 addErrorClass(age);
                 errorMessages.push("Vek nesmie byť vyšší ako 120 rokov!");
                 error = 'true';
@@ -395,6 +403,78 @@
         element.className = newClass;
     }
 
+    /**
+     * Validate if birthnum is correct with other inputs
+     * BirthDate
+     * Age
+     * Gender
+     */
+    function isBirthNumSameAsBirthDateAgeGender() {
+        var isWoman = undefined;
+        var birthNum = document.getElementById("birthNum");
+        var tmp = birthNum.value.split("/");
+        var tmp2 = tmp[0].match(/.{1,2}/g);
+        // Get year.
+        if (tmp2[0] < 54 && tmp[1].length == 3) {
+            // We have person who was born before 1954.
+            var year = '19' + tmp2[0];
+        } else if (tmp2[0] < 54 && tmp[1].length == 4) {
+            // We have young who was born in or after 2000.
+            var year = '20' + tmp2[0];
+        } else {
+            // We have person who was born after 1954 and is older then 2000.
+            var year = '19' + tmp2[0];
+        }
+        // Get month.
+        if (parseInt(tmp2[1]) > 12) {
+            // We have some woman here.
+            isWoman = true;
+            var month = parseInt(tmp2[1]) - 50;
+        } else {
+            isWoman = false;
+            var month = tmp2[1];
+        }
+        var day = tmp2[2];
+        // Check if days in month are valid
+        if (month[0] == 0) {
+            var month = month.substr(1);
+        }
+        if (day > months[month]) {
+            // We have more days then allowed.
+            addErrorClass(birthNum);
+            errorMessages.push("Pre mesiac " + month + " je maximalny pocet dni len " + months[month]);
+        }
+        // Calculate and add age to input.
+        var newDate = month + "/" + day + "/" + year;
+        var birthDay = new Date(newDate);
+        var age = _calculateAge(birthDay.getTime());
+        // Check if age is same as age from BirthNum.
+        if (document.getElementById('age').value != age) {
+            addErrorClass(document.getElementById('age'));
+            errorMessages.push("Vek sa nezhoduje s rodnym cislom!");
+            showErrorsNearInput('age_error_container');
+            return false;
+        }
+        // Check if gender is same as gender from BirthNum.
+        if (document.getElementById("woman").checked !== isWoman) {
+            errorMessages.push("Pohlavie sa nezhoduje s rodným číslom!");
+            showErrorsNearInput('gender_error_container');
+            return false;
+        }
+        var birthDate = document.getElementById('birthDate');
+        tmp = birthDate.value.split("-");
+        var _year = tmp[0];
+        var _month = tmp[1];
+        var _day = tmp[2];
+        if (_year != year || _month != month || _day != day) {
+            addErrorClass(document.getElementById('birthDate'));
+            errorMessages.push("Dátum narodenia sa nezhoduje s dátumom v rodnom čísle!");
+            showErrorsNearInput('birthDate_error_container');
+            return false;
+        }
+        return true;
+    }
+
     var _woman = document.getElementById('woman');
     var _man = document.getElementById('man');
     _woman.onchange = function () {
@@ -414,9 +494,6 @@
 
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-        /*$('#myForm').submit(function (e) {
-            e.preventDefault();
-        });*/
     });
 </script>
 </body>

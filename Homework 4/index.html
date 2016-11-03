@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fotogaléria</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="source.js"></script>
+    <script type="text/JavaScript" src="javascript.js"></script>
+</head>
+<body>
+<div onclick="exit()" id="layer" class="layer hidden"></div>
+<h1>Fotogallery</h1>
+<section id="vrstva" class="zoomIn">
+    <h2 id="text"></h2>
+    <a class="exit" onclick="exit()"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+    <div class="buttons">
+        <a onclick="left()"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+        <a onclick="right()"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+        <a onclick="play()"><i class="fa fa-play" aria-hidden="true"></i></a>
+    </div>
+    <div id="desc">toto je popis obrazku</div>
+</section>
+<ul id="gallery">
+</ul>
+<script>
+    var gallery = document.getElementById("gallery");
+    for (var i = 0, max = a.photos.length; i < max; i++) {
+        gallery.innerHTML += '<li>' +
+                '<img  id="' + i + 1 + '" class="galeriaM" onClick="zobraz(' + i + ')" src="' + a.photos[i].small_img + '" alt="obrazok" width="205" height="150">' +
+                '</li>'
+    }
+</script>
+</body>
+</html>

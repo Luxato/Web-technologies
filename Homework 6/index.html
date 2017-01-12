@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="sk">
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+    <meta charset="utf-8"/>
+    <title>STU FEI</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+<main>
+    <div id="formular">
+        <label for="odkial">Mesto odkiaľ cestuješ do školy:</label>
+        <input type="text" id="odkial" placeholder="Zadajte mesto">
+        <div id="travelbox">
+            <input type="checkbox" id="travel" checked> <label for="travel">Pojdem pešo</label>
+        </div>
+        <input type="hidden" value="Bratislava" id="end">
+        <br>
+        <input class="btn btn-sm btn-success pull-right" type="submit" id="submit" value="Hladaj" onclick="findPlace()">
+    </div>
+    <hr>
+</main>
+<div id="bottompanel">
+    <div id="panel"></div>
+    <div id="panel2"></div>
+</div>
+<div id="panorama"></div>
+<div id="map"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjlFNCSAD3RFSKOa1ct0ocy82FQHZ8K2M&callback=init_Map&libraries=places"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="flot/jquery.flot.selection.js"></script>
+    <title>Zadanie Webte</title>
+    <style>
+        body {
+            color: #000;
+        }
+
+        h1 {
+            color: #000;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        #placeholder {
+
+            width: 600px;
+            height: 450px;
+            position: relative;
+            left: 26%;
+            top: 18%;
+        }
+
+        label {
+            padding-right: 10px;
+        }
+
+        #btns {
+            padding: 10px;
+            color: #000;
+            position: absolute;
+            left: 40%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>Zadanie Grafy</h1>
+<div id="placeholder"></div>
+
+<div id="btns">
+    <label for="sin">
+        <input id="sin" type="checkbox">SINUS
+    </label>
+    <label for="kos">
+        <input id="kos" type="checkbox">KOSINUS
+    </label>
+    <button class="btn btn-danger" id=stop onclick="koniec()">STOP</button>
+
+</div>
+
+<script>
+    var axis_sin=[];
+    var axis_kos=[];
+    var dat=[];
+    var option,optionOverview,chart,overview;
+
+    var color01 = '#8ae859';
+    var color02 = '#cc3d24';
+    if (typeof(EventSource) !== "undefined") {
+        source = new EventSource("http://vmzakova.fei.stuba.sk/sse/sse.php");
+        source.onmessage = spracuj;
+    }
+    $(document).ready(function(){
+        $.plot($("#placeholder"), [ [[0, 0], [0, 0]] ], { yaxis: { max: 1 } });
+    });
+
+    function  spracuj(event) {
+        var data_json =JSON.parse(event.data);
+        var ax_sin=[];
+        var ax_kos=[];
+        ax_sin[0]=parseFloat(data_json.x);
+        ax_sin[1] = parseFloat(data_json.y1);
+        axis_sin.push(ax_sin);
+
+        ax_kos[0]=ax_sin[0];
+        ax_kos[1]=parseFloat(data_json.y2);
+        axis_kos.push(ax_kos);
+        if ((!document.getElementById('sin').checked) &&(!document.getElementById('kos').checked)) {
+
+            $.plot($("#placeholder"), [ [[0, 0], [0, 0]] ], { yaxis: { max: 1.2,min: -1.2 } });
+        }
+        if ((document.getElementById('sin').checked)&&(document.getElementById('kos').checked)){
+
+            ax_sin[0]=parseFloat(data_json.x);
+            ax_sin[1] = parseFloat(data_json.y1);
+            axis_sin.push(ax_sin);
+
+            ax_kos[0]=ax_sin[0];
+            ax_kos[1]=parseFloat(data_json.y2);
+            axis_kos.push(ax_kos);
+
+
+            dat = [{ data:axis_sin, label:"SINUS", lines:{show:true},color:color01}
+                ,{ data:axis_kos, label:"KOSINUS", lines:{show:true}, points:{show:true,fill:true,fillColor:color02},color:color02}];
+
+            $.plot($("#placeholder"), dat, {yaxis: {max: 1.2, min: -1.2}});
+        }  //obe
+
+        if ((document.getElementById('sin').checked ) && (!document.getElementById('kos').checked) )  {
+            axis_sin.push(ax_sin);
+            axis_kos.push(ax_kos);
+
+            $.plot($("#placeholder"), [{data:axis_sin,label:"SINUS",lines:{show:true},color:color01}], {yaxis: {max: 1.2, min: -1.2}});
+        }  //iba sin
+
+        if ((document.getElementById('kos').checked) &&(!document.getElementById('sin').checked))  { //iba kos
+            axis_sin.push(ax_sin);
+            axis_kos.push(ax_kos);
+
+            $.plot($("#placeholder"),  [{data:axis_kos,label:"KOSINUS",lines:{show:true}, points:{show:true},color:color02}], {yaxis: {max: 1.2, min: -1.2}});
+        } //iba kos
+
+        if ((!document.getElementById('kos').checked) &&(!document.getElementById('sin').checked)) {
+
+            $.plot($("#placeholder"), [ [[0, 0], [0, 0]] ], { yaxis: { max: 1.2,min: -1.2 } });
+
+        }  //nic nie je vybrate
+
+    }
+
+
+    option={legend:{position:"rw"}};
+    optionOverview={legend:{show:false},selection:{mode:"xy"}};
+
+    function koniec(){
+
+        source.close();
+
+    }
+</script>
+</body>
+</html>

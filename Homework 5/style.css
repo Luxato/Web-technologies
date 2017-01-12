@@ -1,0 +1,28 @@
+body, html {
+    background-color: #FF3549 !important;
+    width: 100%;
+    height: 100%;
+}
+
+#numbers {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    padding: 5px;
+}
+
+.btn-success {
+    background: #FF0019 !important;
+    border: 1px solid #B20011 !important;
+    width: 50% !important;
+    margin: 0 auto;
+    float: right;
+}
+
+h3 {
+    color: #B20011 !important;
+}
+
+input {
+    margin: 10px 0 !important;
+}

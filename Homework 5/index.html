@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Webworker zadanie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div style="width: 50%; float: left;">
+        <h3>Zadajte interval od 1 do 100000</h3>
+        <div class="wrapper" style="width: 50%;">
+            <input class="form-control" type="number" name="num" value="1" id="num">
+            <input class="form-control" type="number" name="max" value="100000" id="max">
+            <input class="form-control btn btn-success" type="button" name="start" value="Vypočítaj"
+                   onclick="spust();">
+            <div id="status"></div>
+        </div>
+    </div>
+    <div style="width: 50%; float: left;">
+        <div class="form-control" id="numbers"></div>
+    </div>
+</div>
+<script>
+    /**
+     * Globals
+     */
+    var worker;
+    var placenemt;
+    var percentage;
+
+    function spust() {
+        var num = document.getElementById('num').value;
+        var max = document.getElementById('max').value;
+
+        placenemt = document.getElementById('numbers');
+        percentage = document.getElementById('status');
+
+        console.log(num);
+        if (num > max || max > 100000) {
+            alert("Zle vstupne hodnoty");
+        } else {
+            placenemt.innerHTML = "";
+            worker = new Worker("webworker.js");
+            worker.onmessage = progress;
+
+            worker.postMessage({num: num, max: max});
+        }
+    }
+
+    function progress(event) {
+        var message = event.data;
+        if (message.messageType == "vypis") {
+            var str = message.data.toString();
+            document.getElementById('numbers').innerHTML = str;
+            document.getElementById('status').innerHTML = "100% hotovo";
+        }
+        else if (message.messageType == "progress") {
+            document.getElementById('status').innerHTML = message.data + "% hotovo ...";
+        }
+    }
+</script>
+</body>
+</html>

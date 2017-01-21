@@ -36,7 +36,8 @@ http://showcase.stranovsky.sk/webtech/homework1
 6.	Zadanie formátujte len pomocou CSS (žiadne fyzické HTML štýly).
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
 
-
+![alt tag](http://showcase.stranovsky.sk/webtech/homework2/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework2
 ##Homework#3 Formuláre
 Vytvorte váš vlastný zmysluplný formulár. Zameranie formuláru si môžete určiť sami, musia však byť splnené nasledovné požiadavky:
 
@@ -57,6 +58,9 @@ Pozn.: pri vypĺňaní formuláru nemusíte zadávať vlastné rodné číslo, m
 Formulár musí mať prijateľný vzhľad (t.j. jednotlivé položky v ňom nemôžu byť len "nahádzané", ale musia byť pekne sformátované a zarovnané). Hodnotí sa aj grafický dojem.
 Odovzdanie zadania bude spočívať v troch bodoch (všetky tri budú súčasťou bodovania):
 
+![alt tag](http://showcase.stranovsky.sk/webtech/homework3/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework3
+
 ##Homework#4 CSS a fotogaléria
 
 Pomocou JavaScriptu vytvorte galériu obrázkov, ktoré sú uložené v adresári “images”. Do adresára si vložte minimálne 5 vlastných obrázkov. 
@@ -75,6 +79,9 @@ V zadaní nie je možné použiť žiadne externé css a javascriptové knižnic
 
 Znova si dajte záležať na vzhľade. 
 
+![alt tag](http://showcase.stranovsky.sk/webtech/homework4/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework4
+
 ##Homework#5 Web Workers
 
 Úlohou je vytvoriť web stránku, na ktorej sa budú pre zadaný interval vypočítavať  prvočísla, ktoré sa nachádzajú vo vnútri zadaného intervalu. Zadanie je potrebné realizovať pomocou web workerov.
@@ -90,6 +97,9 @@ Poznámky:
 JS knižnice (napr. jQuery) je už možné používať.
 Estetika je zasa len a len na Vás... ale pamätajte, že pekné sa predáva lepšie.
 
+![alt tag](http://showcase.stranovsky.sk/webtech/homework5/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework5
+
 ##Homework#6 Google Maps
 
 1.	Na stránke si zobrazte mapu pomocou Google maps, na ktorej bude blízke okolie FEI STU. Budovu fakulty označte markerom a vedľa neho uveďte, k čomu to označenie patrí (príklad označenia je na nižšie uvedenom obrázku). Ak niekedy neskôr užívateľ klikne na zobrazený marker, tak sa mu v popup okne zobrazia GPS súradnice tohto miesta.
@@ -97,6 +107,8 @@ Estetika je zasa len a len na Vás... ale pamätajte, že pekné sa predáva lep
 3.	Po získaní odpovede z Google serveru zobrazte na mape zastávky MHD, ktoré sa nachádzajú v okolí FEI STU (dá sa to realizovať ako vyhľadávanie vyznamných objektov daného typu).
 4.	Vedľa mapy zobrazte využitím Google maps reálny pohľad na fakultu („Street View“) tak, aby zobrazoval pohľad na fakultu v mieste, ktoré je vyznačené markerom (t.j., ak marker bude umiestnený na budovu bloku A, tak pohľad na fakultu bude zobrazovať blok A, napr. vchod). 
 
+![alt tag](http://showcase.stranovsky.sk/webtech/homework6/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework6
 
 ##Homework#7 Grafy
 
@@ -113,3 +125,6 @@ Poznámky:
 JS knižnice (napr. jQuery) je už možné používať.
 Na vykresľovanie grafov je možné použiť ľubovolnú JS knižnicu, napr. Flot, jqplot, atď.
 Estetika je zasa len a len na Vás... ale pamätajte, že pekné sa predáva lepšie.
+
+![alt tag](http://showcase.stranovsky.sk/webtech/homework7/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework7

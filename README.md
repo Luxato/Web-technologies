@@ -5,7 +5,7 @@ Homeworks for school subject Web technologies.
 Every single homework is in own directory.
 ##Licence
 MIT license
-## Homework#1
+## Homework#1 HTML+CSS
 
 Vytvorte si osobnú web stránku. Je potrebné, aby zadanie spĺňalo nasledovné požiadavky:
 1.	Dokument zostavte podľa odporúčaní HTML 5 (nesmie chýbať DOCTYPE).
@@ -25,7 +25,7 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 10.	Nezabudnite na názov celej stránky.
 
 
-##Homework#2
+##Homework#2 HTML+CSS
 1.	Vytvorte validné web stránky (HTML 5), na ktorých zobrazíte vybrané geografické údaje.
 2.	Na Internete si vyhľadajte čo najjednoduchšiu voľne dostupnú mapu Slovenska. Nezabudnite neskôr na Vašej stránke uviesť klikateľný odkaz na stránku, odkiaľ ste ju prevzali.
 3.	Vytvorte web stránku s mapou, kde budú zvýraznené 4 vybrané mestá. Z mapy alebo zo stránky musí byť jasné, ktoré 4 mestá sú aktívne (najlepšie pomocou markerov). Štruktúra vytvorenej webstránky by mala byť v súlade so špecifikáciou HTML5 (treba používať sémantické značky).
@@ -35,7 +35,7 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 7.	Validitu vytvoreného dokumentu skontrolujte pomocou validátora (HTML aj CSS).
 
 
-##Homework#3
+##Homework#3 Formuláre
 Vytvorte váš vlastný zmysluplný formulár. Zameranie formuláru si môžete určiť sami, musia však byť splnené nasledovné požiadavky:
 
 1.	formulár musí obsahovať minimálne:
@@ -54,7 +54,60 @@ Pozn.: pri vypĺňaní formuláru nemusíte zadávať vlastné rodné číslo, m
 
 Formulár musí mať prijateľný vzhľad (t.j. jednotlivé položky v ňom nemôžu byť len "nahádzané", ale musia byť pekne sformátované a zarovnané). Hodnotí sa aj grafický dojem.
 Odovzdanie zadania bude spočívať v troch bodoch (všetky tri budú súčasťou bodovania):
-1.	Vytvorený formulár vyplníte (nezabudnite vyplniť a vyznačiť všetky položky) a odošlete na mail jedným z nasledujúcich spôsobov:
-a.	pomocou metódy mailto.
-b.	pomocou niektorej z voľne dostupných služieb na Internete.
 
+##Homework#4 CSS a fotogaléria
+
+Pomocou JavaScriptu vytvorte galériu obrázkov, ktoré sú uložené v adresári “images”. Do adresára si vložte minimálne 5 vlastných obrázkov. 
+
+Na titulnej stránke sa vám zobrazia ako náhlady zmenšené kópie obrázkov. 
+
+Po kliknutí na náhľad sa vybraný obrázok v plnej veľkosti (treba ju však obmedziť rozmermi okna) zobrazí vo vrstve nad stránkou, kde sa zároveň zobrazí aj názov obrázku a jeho opis (podobná funkcionalita je implementovaná na Facebook-u, pozrite obrázok nižšie). Vo vrstve sa zobrazia tiež šipky na posúvanie sa doprava a doľava a tlačidlo na spustenie slideshow. 
+
+Informácie o mene súboru s obrázkom, názve obrázku a popise obrázku čerpajte z xml dokumentu alebo z json štruktúry (jedno z toho). Na tento účel využite priložené súbory (xml, json), v ktorých si údaje (nie štruktúru) aktualizujte na základe vami použitých obrázkov.
+
+Vzor funkcionality zobrazovania obrázkov vo vrstve nad stránkou nájdete na adrese http://lokeshdhakar.com/projects/lightbox2/#example, kde kliknite na niektorý z obrázkov pod textom EXAMPLES (Four image set).
+
+Stránku validujte podľa HTML5 a CSS3. 
+
+V zadaní nie je možné použiť žiadne externé css a javascriptové knižnice.
+
+Znova si dajte záležať na vzhľade. 
+
+##Homework#5 Web Workers
+
+Úlohou je vytvoriť web stránku, na ktorej sa budú pre zadaný interval vypočítavať  prvočísla, ktoré sa nachádzajú vo vnútri zadaného intervalu. Zadanie je potrebné realizovať pomocou web workerov.
+
+Vytvorená web stránka bude obsahovať :
+
+2 textové polia na zadanie uvažovaného intervalu.  Treba ošetriť, aby do vstupných polí bolo možné zadávať len numerické hodnoty.
+ďalší prvok (napr. tlačidlo), ktorým sa po kliknutí zobrazia vypočítané prvočísla.
+algoritmus na výpočet si nájdite na Internete a na stránke uveďte adresu, z ktorej ste ten algoritmus čerpali (aj v prípade, že budete preberať časť kódu).
+výpočet prvočísiel realizujte pomocou web workerov, pričom na vhodnom mieste informujte užívateľa o celkovom stave výpočtu (t.j. koľko percent z výpočtu je už realizovaných).
+Poznámky:
+
+JS knižnice (napr. jQuery) je už možné používať.
+Estetika je zasa len a len na Vás... ale pamätajte, že pekné sa predáva lepšie.
+
+##Homework#6 Google Maps
+
+1.	Na stránke si zobrazte mapu pomocou Google maps, na ktorej bude blízke okolie FEI STU. Budovu fakulty označte markerom a vedľa neho uveďte, k čomu to označenie patrí (príklad označenia je na nižšie uvedenom obrázku). Ak niekedy neskôr užívateľ klikne na zobrazený marker, tak sa mu v popup okne zobrazia GPS súradnice tohto miesta.
+2.	Na stránke umiestnite formulár, ktorý umožní pomocou textového poľa zadať miesto, odkiaľ chcete prísť na fakultu a či chcete prist pešo alebo autom. Na mape sa potom zobrazí vyznačená odporučená najrýchlejšia trasa a pod mapou bude uvedený údaj, o akú vzdialenosť ide.
+3.	Po získaní odpovede z Google serveru zobrazte na mape zastávky MHD, ktoré sa nachádzajú v okolí FEI STU (dá sa to realizovať ako vyhľadávanie vyznamných objektov daného typu).
+4.	Vedľa mapy zobrazte využitím Google maps reálny pohľad na fakultu („Street View“) tak, aby zobrazoval pohľad na fakultu v mieste, ktoré je vyznačené markerom (t.j., ak marker bude umiestnený na budovu bloku A, tak pohľad na fakultu bude zobrazovať blok A, napr. vchod). 
+
+
+##Homework#7 Grafy
+
+Úlohou zadania je na základe údajov generovaných na stránke http://vmzakova.fei.stuba.sk/sse  vykresľovať postupne graf až do momentu, pokiaľ nestlačíte na vašej stránke tlačidlo "Koniec". V tomto okamihu je potrebné, aby sa graf zobrazil celý, t.j. od začiatku jeho vykresľovania až po jeho koniec.
+
+V obrázku vykresľujte 2 farebne odlíšené grafické závislosti - zodpovedajúce dvom meraniam (zašumený sínus a kosínus). 
+
+Pri obrázku zobrazte 2 checkboxy, pomocou ktorých bude možné ovplyvňovať, ktorý graf má byť v obrázku zobrazený (prvý alebo druhý, obidva naraz, žiadny). 
+
+Po ukončení merania v obrázku umožnite robiť aj "zoomovanie" časti grafov.
+
+Poznámky:
+
+JS knižnice (napr. jQuery) je už možné používať.
+Na vykresľovanie grafov je možné použiť ľubovolnú JS knižnicu, napr. Flot, jqplot, atď.
+Estetika je zasa len a len na Vás... ale pamätajte, že pekné sa predáva lepšie.

@@ -24,6 +24,8 @@ Pri formátování podstránky "Môj rozvrh" odlíšte graficky prednášky, cvi
 9.	Podstránka "Kontakt" bude obsahovať vaše kontaktné informácie s dôrazom na elektronickú možnosť kontaktovania.
 10.	Nezabudnite na názov celej stránky.
 
+![alt tag](http://showcase.stranovsky.sk/webtech/homework1/preview.jpg)
+http://showcase.stranovsky.sk/webtech/homework1
 
 ##Homework#2 HTML+CSS
 1.	Vytvorte validné web stránky (HTML 5), na ktorých zobrazíte vybrané geografické údaje.
